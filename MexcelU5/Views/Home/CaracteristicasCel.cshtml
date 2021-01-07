@@ -1,0 +1,60 @@
+﻿@model MexcelU5.Models.ViewModels.CaracteristicasViewModel
+@{
+    Layout = "_Layout";
+    var cel = Model.Smartphones;
+ }
+<h2 id="nombre">@cel.Nombre</h2>
+
+<section class="descripcion" id="descripcion">
+    @cel.Descripcion
+</section>
+
+<section class="galeria">
+    <img src="~/CatalogoS/@(cel.Id).jpg" />
+</section>
+
+<section class="datos">
+    <h3>Especificaciones</h3>
+    <label>Marca: </label>
+    <span id="marca">@cel.IdMarcaNavigation.Nombre</span>
+    <br />
+    <label>Pantalla: </label>
+    <span id="pantalla">@(cel.Pantalla)</span>
+    <br />
+    <label>Procesador: </label>
+    <span id="procesador">@(cel.Procesador)</span>
+    <br />
+    <label>Memoria RAM: </label>
+    <span id="ram">@(cel.Ram)GB</span>
+    <br />
+    <label>Almacenamiento: </label>
+    <span id="almacenamiento">@(cel.Almacenamiento)GB</span>
+    <br />
+    <label>Memoria Expandible: </label>
+    <span id="expandible">@(cel.Expansion)GB</span>
+    <br />
+</section>
+<section class="fisicas">
+    <h3>Caracteristicas</h3>
+    <label>Camara: </label>
+    <span id="camara">@cel.Caracteristicas.Camara</span>
+    <br />
+    <label>Bateria: </label>
+    <span id="bateria">@(cel.Caracteristicas.Bateria)mAh</span>
+    <br />
+    <label>Sistema Operativo: </label>
+    <span id="so">@cel.Caracteristicas.So</span>
+    <br />
+    <label>Tamaño: </label>
+    <span id="tamaño">@(cel.Caracteristicas.Tamaño) mm.</span>
+    <br />
+    <label>Peso: </label>
+    <span id="peso">@(cel.Caracteristicas.Peso) g.</span>
+    <br />
+    <label>Precio: </label>
+    <span id="precio">$ @(cel.Caracteristicas.Precio) MXN.</span>
+    <br />
+</section>
+<br class="clear" />
+
+<a href="javascript:history.back();" class="button">Regresar</a>

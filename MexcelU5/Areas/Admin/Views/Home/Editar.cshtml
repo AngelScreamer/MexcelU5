@@ -1,0 +1,54 @@
+﻿@model MexcelU5.Models.ViewModels.AdminCelularesViewModel
+@{
+    Layout = "_LayAdmin";
+}
+
+<h1>Editar</h1>
+<form enctype="multipart/form-data" action="~/Admin/Home/Editar" method="post">
+    <h2>Editar Smartphone.</h2>
+    <input type="hidden" asp-for="Smartphones.Id" />
+    <select asp-for="Smartphones.IdMarca" asp-items="@(new SelectList(Model.Marcas,"Id","Nombre"))" disabled>
+        <option></option>
+    </select><br />
+    <label>Nombre:</label>
+    <input type="text" asp-for="Smartphones.Nombre" required /> <br />
+    <label>Descripción:</label>
+    <textarea asp-for="Smartphones.Descripcion"></textarea>
+    <label>Pantalla:</label>
+    <input type="text" asp-for="Smartphones.Pantalla" required /> <br />
+    <label>Procesador:</label>
+    <input type="text" asp-for="Smartphones.Procesador" required />
+    <label>Memoria RAM:</label>
+    <input type="number" max="12" min="0" asp-for="Smartphones.Ram" required /> <br />
+    <label>Almacenamiento:</label>
+    <input type="number" max="512" min="0" asp-for="Smartphones.Almacenamiento" required />
+    <label>Expansión:</label>
+    <input type="text" asp-for="Smartphones.Expansion" required /> <br />
+
+    <h2>Características.</h2>
+    <label>Cámara:</label>
+    <input type="text" asp-for="Smartphones.Caracteristicas.Camara" required />
+    <label>Batería:</label>
+    <input type="number" max="7000" min="0" asp-for="Smartphones.Caracteristicas.Bateria" required /> <br />
+    <label>Sistema Operativo:</label>
+    <input type="text" asp-for="Smartphones.Caracteristicas.So" required />
+    <label>Tamaño:</label>
+    <input type="number" max="10.0" min="0.0" asp-for="Smartphones.Caracteristicas.Tamaño" required /><br />
+    <label>Peso:</label>
+    <input type="number" max="400" min="0" asp-for="Smartphones.Caracteristicas.Peso" required />
+    <label>Precio:</label>
+    <input type="number" max="50000" min="0" asp-for="Smartphones.Caracteristicas.Precio" required /><br />
+
+    <label id="error">
+        @Html.ValidationSummary()
+    </label>
+
+    <div class="boton">
+        <input type="submit" value="Editar" />
+
+        <a href="~/Admin/Home">
+            <input type="button" value="Cancelar" />
+        </a>
+    </div>
+
+</form>

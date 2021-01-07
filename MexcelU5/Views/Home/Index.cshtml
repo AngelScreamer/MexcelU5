@@ -1,0 +1,29 @@
+﻿@model MexcelU5.Models.ViewModels.IndexViewModel
+@{ Layout = "_Layout"; }
+
+<section class="nav">
+    <a href="~/Home/InfoUsuario">Mi cuenta</a>
+    <nav>
+        <a href="~/Home/Index">Todas</a>
+
+        @foreach (var item in Model.BusquedaLetra.Distinct())
+        {
+             <a href="~/Home/Index/@item">@item</a>
+        }
+
+        <a href="~/Admin/Home/InicioDeSesionAdmin">Administrar</a>
+    </nav>
+</section>
+<section class="list">
+    <ul>
+        @foreach (var item in Model.Celulares)
+        {
+            <li>
+                <a href="/Celular/@item.Nombre.Replace(" ","-")">
+                  <img src="~/CatalogoS/@(item.Id).jpg"><br />
+                    @item.Nombre
+                </a>
+            </li>
+          }
+    </ul>
+</section>

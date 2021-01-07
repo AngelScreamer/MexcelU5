@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MexcelU5.Models.Smartphones>
+@{
+    Layout = "_LayAdmin";
+}
+<h1>Lista de Smartphones</h1>
+
+<table>
+    <colgroup>
+        <col style="width:50px" />
+        <col style="width:40px" />
+        <col />
+        <col style="width:50%" />
+    </colgroup>
+    <caption>
+        <a href="~/Admin/Home/Agregar"><i class="fa fa-plus"></i> Agregar Smarphone</a><br />
+        <a href="~/Home/CerrarSesion">Cerrar sesión</a>
+    </caption>
+    <thead>
+        <tr>
+            <th>Num. de serie</th>
+            <th colspan="2">Nombre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="center">@item.Id</td>
+                <td style="width:40px"><img src="~/MarcaS/@(item.IdMarca).png"></td>
+                <td>@item.Nombre</td>
+                <td class="center">
+                    <a href="/Admin/Home/Editar/@item.Id"><i class="fa fa-edit"></i> Editar</a>
+                    <a href="/Admin/Home/Eliminar/@item.Id"><i class="fa fa-remove"></i> Eliminar</a>
+                    <a href="/Admin/Home/Imagen/@item.Id"><i class="fa fa-image"></i> Imagen</a>
+                </td>
+            </tr>
+        }
+       
+    </tbody>
+</table>

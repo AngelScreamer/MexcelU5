@@ -1,0 +1,33 @@
+﻿@model MexcelU5.Models.ViewModels.AdminCelularesViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{ Layout = "_LayAdmin"; }
+
+<h1>Agregar imagen a @Model.Smartphones.Nombre</h1>
+
+<form method="post" href="~/Admin/Home" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Smartphones.Id" />
+    <label>Nombre:</label>
+    <input type="text" readonly asp-for="Smartphones.Nombre" />
+    <label>Imagen:</label>
+
+    <input type="file" accept="image/jpg" asp-for="Archivo" onchange="mostrarImagen(this)" />
+
+    <img id="imagePreview" src="~/CatalogoS/@Model.Imagen" height="100" />
+
+    <p class="error">@Html.ValidationSummary()</p>
+    <input type="submit" id="btnGuardar" value="Guardar" />
+    <a href="~/Admin/Home">
+        <input type="button" value="Cancelar" id="btnCancelar" formnovalidate="formnovalidate" />
+    </a>
+</form>
+
+<script>function mostrarImagen(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById("imagePreview").src = e.target.result;
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }</script>
+

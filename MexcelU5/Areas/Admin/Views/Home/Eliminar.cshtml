@@ -1,0 +1,18 @@
+﻿@model MexcelU5.Models.Smartphones
+@{ Layout = "_LayAdmin"; }
+
+<form asp-area="Admin" asp-controller="Home" asp-action="Eliminar" method="post">
+    <h2>Eliminar Smartphone.</h2>
+    <label>Celular</label>
+    <label type="hidden" asp-for="Id" />
+    <input type="text" asp-for="Nombre" readonly />
+
+    <div class="botones">
+        <input class="btnSumbit" type="submit" value="Eliminar" />
+        <a href="~/Admin/Home">
+            <input type="button" value="Cancelar" />
+        </a>
+
+    </div>
+</form>
+

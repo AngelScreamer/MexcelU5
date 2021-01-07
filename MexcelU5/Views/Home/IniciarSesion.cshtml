@@ -1,0 +1,26 @@
+﻿@model MexcelU5.Models.Usuario
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
+<main>
+    <h1>INICIA SESÓN:</h1><br>
+    <h1>Mexcel</h1>
+    <p>
+        ¡Unete a nosotros!.
+    </p>
+    <a href="~/Home/Registrar">Regístrate</a>
+    <form method="post" action="~/Home/IniciarSesion">
+        <input type="email" asp-for="Correo" placeholder="Correo" required />
+        <br />
+        <input type="password" asp-for="Contrasena" placeholder="Contraseña" required />
+        <br />
+        <input type="checkbox" id="mantener" name="mantener" value="true" />
+        <label for="mantener">Mantener sesión.</label>
+        <br />
+        <input type="submit" value="Acceder" />
+        <br />
+    </form>
+    @Html.ValidationSummary()
+    <a href="~/Home/RecuperarContra">¿Olvidaste tu contraseña?</a>
+</main>
